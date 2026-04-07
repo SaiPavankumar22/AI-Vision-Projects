@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malpractice Detection Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Malpractice Detection Dashboard</h1>
+
+      <section class="panel">
+        <h2>Monitoring Controls</h2>
+        <div class="row">
+          <label for="backendUrl">Backend URL</label>
+          <input id="backendUrl" value="http://localhost:8000" />
+          <label for="modeSelect">Mode</label>
+          <select id="modeSelect">
+            <option value="rest">REST (300ms polling)</option>
+            <option value="ws">WebSocket stream</option>
+          </select>
+        </div>
+        <div class="row">
+          <button id="startBtn">Start Monitoring</button>
+          <button id="stopBtn" disabled>Stop Monitoring</button>
+        </div>
+        <p id="connectionStatus" class="status">Idle</p>
+      </section>
+
+      <section class="panel grid">
+        <div>
+          <h2>Live Camera</h2>
+          <video id="video" autoplay playsinline muted></video>
+        </div>
+        <div>
+          <h2>Detection Result</h2>
+          <p><strong>Session:</strong> <span id="sessionId">-</span></p>
+          <p><strong>Head:</strong> <span id="headDirection">-</span></p>
+          <p><strong>Body:</strong> <span id="bodyPosition">-</span></p>
+          <p><strong>Faces:</strong> <span id="facesCount">-</span></p>
+          <p><strong>Alert:</strong> <span id="alertLevel">-</span></p>
+          <p><strong>Violations:</strong> <span id="violationCount">0</span></p>
+          <p><strong>Latency (ms):</strong> <span id="latencyMs">-</span></p>
+          <div id="alertBanner" class="alert ok">No issues detected</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Event Log</h2>
+        <pre id="eventLog"></pre>
+      </section>
+    </main>
+    <script src="./app.js?v=20260407-2"></script>
+  </body>
+  </html>

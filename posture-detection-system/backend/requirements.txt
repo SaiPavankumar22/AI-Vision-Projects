@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+opencv-python
+mediapipe
+numpy
+python-multipart
+pydantic-settings
